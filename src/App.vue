@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <DashboardPage/>
+    <DashboardPage />
   </div>
 </template>
 
@@ -16,7 +16,8 @@ export default {
 </script>
 
 <style>
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   min-height: 100vh;

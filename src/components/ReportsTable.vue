@@ -68,15 +68,13 @@ export default {
                     const header = `${sensor} (${this.sensorData[batch][sensor].unit})`;
 
                     if (!data.headers.includes(header)) {
-                        data.headers.push(header)
-
-
+                        data.headers.push(header);
                     }
                     // Form first column
                     if (!tableBatch['startTime']) {
-                        tableBatch['startTime'] = this.sensorData[batch][sensor].timestamps[0]
+                        tableBatch['startTime'] = this.sensorData[batch][sensor].timestamps[0];
                         tableBatch['endTime'] = this.sensorData[batch][sensor].timestamps[this.sensorData[batch][sensor].timestamps.length - 1];
-                        tableBatch['duration'] = this.getTime(new Date(tableBatch['endTime']) - new Date(tableBatch['startTime']))
+                        tableBatch['duration'] = this.getTime(new Date(tableBatch['endTime']) - new Date(tableBatch['startTime']));
                     }
                     // Form data for other columns
                     tableBatch.row.push({
@@ -89,16 +87,14 @@ export default {
                     })
                 }
 
-
-                // console.log(tableBatch)
-                data.body.push(tableBatch)
+                data.body.push(tableBatch);
             }
-            return data
+            return data;
         }
     },
     methods: {
         getTime(ms) {
-            const minutes = ms / 1000 / 60
+            const minutes = ms / 1000 / 60;
             return `${minutes.toFixed()}min. / ${(minutes / 60).toFixed(2)}h.`;
         }
     }
@@ -112,6 +108,7 @@ export default {
     padding: 2rem;
 
     h3 {
+        font-family: "Calibri";
         margin-top: 0;
         font-weight: 400;
         text-align: center;
@@ -205,5 +202,4 @@ export default {
         }
     }
 }
-</style>
-  
+</style>  

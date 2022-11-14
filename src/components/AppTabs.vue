@@ -56,10 +56,6 @@ export default {
             color: white;
             background-color: darken($light-green, 20%);
         }
-
-        /* &:hover {
-        background-color: darken($light-green, 10%);
-    }*/
     }
 }
 </style>

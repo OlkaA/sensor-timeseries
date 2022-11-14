@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     findActiveTab(tabId) {
-      return this.tabs.find(el => el.id === tabId && el.active)
+      return this.tabs.find(el => el.id === tabId && el.active);
     }
   }
 }

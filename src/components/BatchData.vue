@@ -33,9 +33,8 @@ export default {
     }
   },
   mounted: debounce(function () {
-    console.log('mounted')
     this.$nextTick(() => {
-      this.drawTimelines()
+      this.drawTimelines();
     })
   }, 250),
 
@@ -53,9 +52,7 @@ export default {
           if (categories < Number(this.sensorData[batch][sensor].timestamps.length / reduceArrayAmount)) {
             categories = Number((this.sensorData[batch][sensor].timestamps.length / reduceArrayAmount).toFixed(0));
           }
-          let sensorDataForChart;  
-          
-          console.lof
+          let sensorDataForChart;
 
           const currentSensor = this.sensors.find(el => el.id === sensor);
           if (!currentSensor) {
@@ -113,7 +110,7 @@ export default {
                 },
               },
             }
-            this.sensors.push(sensorDataForChart)
+            this.sensors.push(sensorDataForChart);
           }
           else {
             const data = this.getAverage(this.sensorData[batch][sensor].values, reduceArrayAmount);
@@ -133,7 +130,6 @@ export default {
       }
 
       this.sensors.forEach(el => {
-        console.log(el)
         el.chartOptions.xaxis = {
           categories: timeArray,
           tickAmount: 20,
@@ -155,13 +151,12 @@ export default {
     getAverage(array, amount) {
       let result = [];
       do {
-        const x = array.slice(0, amount);
-        const sum = x.reduce((a, b) => Number(a) + Number(b), 0);
-        const avg = (sum / x.length).toFixed(2) || 0;
+        const amountItemsInArray = array.slice(0, amount);
+        const sum = amountItemsInArray.reduce((a, b) => Number(a) + Number(b), 0);
+        const avg = (sum / amountItemsInArray.length).toFixed(2) || 0;
         result.push(avg);
         array = array.slice(amount);
       } while (array.length > 0)
-      
 
       return result;
     }
@@ -171,8 +166,6 @@ export default {
   
 <style scoped lang="scss">
 @import '../assets/scss/variables.scss';
-
-
 .batch-data {
   padding: 2rem;
 
@@ -182,7 +175,6 @@ export default {
     right: 0;
     left: 0;
     bottom: 0;
-
     display: flex;
     justify-content: center;
     align-items: center;
